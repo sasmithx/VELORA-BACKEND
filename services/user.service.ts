@@ -24,7 +24,7 @@ export class UserService {
             throw new Error("Invalid credentials or unverified email");
         }
 
-        const token = jwt.sign({username: user.email}, SECRET_KEY as Secret, {expiresIn: "1m"});
+        const token = jwt.sign({username: user.email}, SECRET_KEY as Secret, {expiresIn: "1d"});
         const refreshToken = jwt.sign({username: user.email}, REFRESH_TOKEN as Secret, {expiresIn: "7d"});
 
         return {accessToken: token, refreshToken: refreshToken, user: {...user, password: undefined}};
