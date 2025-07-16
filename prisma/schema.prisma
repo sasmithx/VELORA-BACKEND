@@ -25,14 +25,14 @@ model User {
 
 model Article {
   id          Int        @id @default(autoincrement())
-  title       String
-  description String?
-  content     String?
-  url         String     @unique
-  urlToImage  String?
   source      String
+  author      String
+  title       String
+  description String     @db.VarChar(500)
+  url         String     @unique
+  urlToImage  String
   publishedAt DateTime
-  category    String
+  content     String     @db.VarChar(500)
   bookmarks   Bookmark[]
   createdAt   DateTime   @default(now())
 }
