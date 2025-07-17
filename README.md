@@ -99,15 +99,71 @@ Ensure you have the following installed:
 - **Node.js**
 - **Typescript**
 - **MySQL**  
-- **Postman** (for API testing)  
+- **Postman** (for API testing)
+- [NewsAPI Key](https://newsapi.org/account)  
 
-### **🔹 Installation**  
+### Installation
 
-#### **1️⃣ Clone the Repository**  
-```sh
-git clone https://github.com/sasmithx/VELORA-BACKEND.git
-cd VELORA-BACKEND
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/sasmithx/VELORA-BACKEND.git
+   cd VELORA-BACKEND
+   ```
+
+2. **Install Dependencies:**
+
+   ```bash
+   npm install
+   ```
+   
+3. **Create MySQL Database:**
+
+   ```bash
+   npx prisma db push
+   ```
+
+4. **Generate Prisma Client:**
+
+   ```bash
+   npx prisma generate
+   ```
+
+---
+
+### Environment Variables
+
+Create a `.env` file in the project root and configure the following variables:
+
+```env
+# MySQL connection string
+DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE_NAME"
+
+# Base URL for API requests
+BASE_URL="http://localhost:3000"
+
+# JWT Secret Keys
+SECRET_KEY="your_jwt_secret_key"
+REFRESH_TOKEN="your_refresh_token_secret"
+
+# News API Key
+NEWS_API_KEY="your_news_api_key"
 ```
+
+---
+
+## Development
+
+To start the development server with live reload, run:
+
+```bash
+  npm start
+```
+
+This command uses nodemon to monitor changes and restart the server automatically.
+
+--- 
+
 ## API Documentation
 Refer to the [Postman API Documentation](https://documenter.getpostman.com/view/35385442/2sB34ijzSB) for detailed API endpoints and usage instructions.
 
